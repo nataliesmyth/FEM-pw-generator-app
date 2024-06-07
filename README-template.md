@@ -62,6 +62,23 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+I wanted to take a second and talk about a semicolon error.
+
+```css
+.fs-600 { font-size: var(--fs-600) };
+.fs-500 { font-size: var(--fs-500) };
+.fs-400 { font-size: var(--fs-400) };
+```
+
+should have been
+
+```css
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+```
+
+took three days to figure it out.
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
@@ -69,11 +86,13 @@ To see how you can add code snippets, see below:
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
+
 ```css
 .proud-of-this-css {
   color: papayawhip;
 }
 ```
+
 ```js
 const proudOfThisFunc = () => {
   console.log('🎉')
@@ -93,17 +112,14 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - [A (more) Modern CSS Reset](https://piccalil.li/blog/a-more-modern-css-reset/) - A comprehensive CSS reset
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Pure CSS Custom Styled Radio Buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/) - This article helped remind me how to style radio inputs, something I haven't done in quite a while.
+- [CSS Tricks](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) - helpful for all things CSS, for this project I needed a reminder that space between inline block elements in HTML is rendered in the browser.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Natalie Smyth](https://nataliesmyth.com)
+- Frontend Mentor - [@nataliesmyth](https://www.frontendmentor.io/profile/nataliesmyth)
+- Twitter - [@itsbirdyperch](https://www.twitter.com/itsbirdyperch)
 
 ## Acknowledgments
 

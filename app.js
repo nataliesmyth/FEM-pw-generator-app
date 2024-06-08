@@ -1,7 +1,7 @@
-console.log('sanity check');
+const generateBtn = document.getElementById('generateBtn');
 
 const checkbox = document.querySelectorAll('.checkbox');
-const checkImg = document.querySelectorAll('.check-image')
+const checkImg = document.querySelectorAll('.check-image');
 
 function handleCheckboxClick() {
     console.log('click!')
@@ -11,6 +11,7 @@ checkbox.forEach((check) => {
     
     check.addEventListener('click', () => {
         console.log(check)
+        console.log(check.parentElement.parentElement.id)
         // check.classList.toggle('.active');
         // checkImg.classList.toggle('.hidden');
         console.log(check.style.backgroundColor)

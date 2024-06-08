@@ -11,7 +11,7 @@ checkbox.forEach((check) => {
     
     check.addEventListener('click', () => {
         console.log(check)
-        console.log(check.parentElement.parentElement.id)
+        console.log(check.id)
         // check.classList.toggle('.active');
         // checkImg.classList.toggle('.hidden');
         console.log(check.style.backgroundColor)
@@ -23,7 +23,6 @@ checkbox.forEach((check) => {
                 check.style.backgroundColor = 'hsl(127 100 82)';
                 check.style.borderColor = 'transparent';
         }
-        checkImg.style.display = 'block';
+        // checkImg.style.display = 'block';
     });
 });
-

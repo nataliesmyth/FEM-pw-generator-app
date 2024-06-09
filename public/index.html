@@ -18,8 +18,8 @@
     <h1 class="title text-mid">Password Generator</h1>
 
     <div class="password-output bg-dark flex">
-      <span class="password-output-text">P4$5W0rD!</span>
-      <img class="password-output-img" src="./assets/images/icon-copy.svg" alt="">
+      <span id="passwordOutput" class="password-output-text text-mid">P4$5W0rD!</span>
+      <img onclick="copyContent()" class="password-output-img" src="./assets/images/icon-copy.svg" alt="black copy icon with green border">
     </div>
     
     <div class="container bg-dark">
@@ -27,7 +27,7 @@
       <div class="bg-dark">
         <div class="character-length flex">
           <span class="char-length-text">Character Length</span>
-          <span class="char-length-num text-accent" id="charLengthNum">10</span>
+          <span class="char-length-num text-accent" id="charLengthNum">0</span>
         </div>
         <div class="slider bg-black">
           <div class="slider-left">
@@ -87,9 +87,9 @@
               <p class="strength-label text-mid">Strength</p>
           </div>
           <div class="right">
-            <p class="strength-result">too weak!</p>
+            <p class="strength-result"></p>
             <span class="strength-result-graph flex">
-              <span class="rectangle bg-red border-none"></span>
+              <span class="rectangle"></span>
               <span class="rectangle"></span>
               <span class="rectangle"></span>
               <span class="rectangle"></span>

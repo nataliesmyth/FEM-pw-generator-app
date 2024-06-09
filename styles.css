@@ -148,7 +148,7 @@ p {
 .main {
   margin: 1em auto;
   padding-inline: 0.25em;
-  max-width: 80rem;
+  max-width: 33.75rem;
   text-align: center;
 }
 
@@ -224,8 +224,13 @@ body {
 }
 
 .password-output-img {
-  width: 17.5px;
-  height: 20px;
+  width: 1.09375rem;
+  height: 1.25rem;
+}
+
+.password-output-img:hover,
+.password-output-img:focus {
+  cursor: pointer;
 }
 
 .character-length {
@@ -245,7 +250,7 @@ body {
 }
 
 .slider-left {
-  width: 50%;
+  width: 5%;
   height: inherit;
   background: hsl(var(--clr-accent));
   position: relative;
@@ -261,15 +266,20 @@ body {
 }
 
 .slider-dial:hover {
-    cursor: pointer;
-    background-color: hsl( var(--clr-black));
-    border: 1px solid hsl( var(--clr-accent) );
+  cursor: pointer;
+  background-color: hsl( var(--clr-black));
+  border: 1px solid hsl( var(--clr-accent) );
+}
+
+.strength {
+  padding-inline: 1em;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .strength-container {
   flex-direction: column;
   width: 100%;
-  /* padding: 1em; */
   font-size: var(--fs-500);
   padding-block: .5em;
   text-transform: uppercase;
@@ -279,9 +289,14 @@ body {
   font-size: var(--fs-300);
 }
 
+.strength-result-graph {
+  justify-content: center;
+  align-items: end;
+  gap: 0.05em;
+}
+
 .rectangle {
-  /* display: inline-block; */
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   width: 0.625rem;
   height: 1.75rem;
   margin: .75em .15em .15em .15em;
@@ -301,13 +316,7 @@ body {
 
 .radio-button > label {
   display: flex;
-  gap: 20px;
-}
-
-.strength {
-  padding-inline: 0.25em;
-  justify-content: space-between;
-  align-items: center;
+  gap: 1.25rem;
 }
 
 .left,
@@ -323,30 +332,19 @@ body {
   gap: 10px;
 }
 
-.strength-result-graph {
-  justify-content: center;
-  align-items: end;
-  gap: 0.15em;
-}
-
 .border-none {
   border-color: transparent;
 }
 
 .checkbox {
   display: flex;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border: 2px solid #FFF;
-  /* background: red; */
 }
 
 .active {
   background-color: hsl( var(--clr-accent) );
-}
-
-.check-image {
-  color: red;
 }
 
 input[type="radio"] {
@@ -361,4 +359,8 @@ input[type="radio"] {
   background-color: hsl( var(--clr-accent) );
   border: none;
   border-radius: 0;
+}
+
+.generate-btn:hover {
+  cursor: pointer;
 }

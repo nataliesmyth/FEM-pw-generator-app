@@ -1,11 +1,33 @@
-const generateBtn = document.getElementById('generateBtn');
+// password generator
+    // when browser loads...
+        // random password is generated
+        // password includes UPPERCASE, lowercase, and a number
+        // three corresponding radio inputs are active
+        // character length is 10
 
+// ON BROWSER LOAD
+
+const generateBtn = document.getElementById('generateBtn');
+const charLengthNum = document.getElementById('charLengthNum')
+const generatedPw = document.getElementById('passwordOutput').innerHTML;
+console.log(generatedPw);
 const checkbox = document.querySelectorAll('.checkbox');
 const checkImg = document.querySelectorAll('.check-image');
 
-function handleCheckboxClick() {
-    console.log('click!')
-}
+let charLength = 0;
+
+// function handleCheckboxClick() {
+//     console.log('click!')
+// }
+
+const copyContent = async () => {
+    try {
+      await navigator.clipboard.writeText(generatedPw);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
 
 checkbox.forEach((check) => {
     
@@ -26,3 +48,17 @@ checkbox.forEach((check) => {
         // checkImg.style.display = 'block';
     });
 });
+
+// window.addEventListener('load', () => {
+//     charLengthNum.innerText = charLength;
+
+//     console.log('loaded!');
+//     console.log(checkbox)
+//     checkbox.forEach((e) => {
+//         if (e.id !== 'includeSymbols') {
+//             console.log(e.id)
+//             e.style.backgroundColor = 'hsl(127 100 82)';
+//             e.style.borderColor = 'transparent';
+//         }
+//     });
+// });

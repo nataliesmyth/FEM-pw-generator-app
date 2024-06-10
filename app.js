@@ -1,11 +1,9 @@
 // password generator
     // when browser loads...
-        // random password is generated
-        // password includes UPPERCASE, lowercase, and a number
-        // three corresponding radio inputs are active
-        // character length is 10
-
-// ON BROWSER LOAD
+        // random password placeholder in grey
+        // character length is 0
+        // all radio buttons inactive
+        // strength bar is empty
 
 const generateBtn = document.getElementById('generateBtn');
 const charLengthNum = document.getElementById('charLengthNum')
@@ -16,10 +14,16 @@ const checkImg = document.querySelectorAll('.check-image');
 let newPassword = ''
 
 let charLength = 0;
+let sliderLeft = document.getElementById('sliderLeft');
+if (charLength > 0) {
+    sliderLeft.style.background = 'hsl(127 100 82)'
+}
 
-// function handleCheckboxClick() {
-//     console.log('click!')
-// }
+let upperCaseActive = false;
+let lowerCaseActive = false;
+let numbersActive = false;
+let symbolsActive = false;
+
 
 const copyContent = async () => {
     try {
@@ -31,17 +35,70 @@ const copyContent = async () => {
   }
 
 checkbox.forEach((check) => {
-    
+    let currToggle;
     check.addEventListener('click', () => {
-        console.log(check)
+        currToggle = check;
+        
         console.log(check.id)
         check.classList.toggle('active');
         console.log(check.classList);
+        console.log('currToggle: ', currToggle);
+        console.log('currToggle.classList.contains("active"): ' ,currToggle.classList.contains('active'))
+        if (currToggle.classList.contains('active') === true) {
+            if (currToggle.id === 'includeUppercase') {
+                upperCaseActive = true;
+                console.log('currToggle.id: ', currToggle.id);
+            } else if (currToggle.id === 'includeLowercase') {
+                lowerCaseActive = true;
+                console.log('currToggle.id: ', currToggle.id);
+            } else if (currToggle.id === 'includeNumbers') {
+                numbersActive = true;
+                console.log('currToggle.id: ', currToggle.id);
+            } else {
+                symbolsActive = true;
+                console.log('currToggle.id: ', currToggle.id);
+            } 
+        }
+        if (currToggle.classList.contains('active') === false) {
+            if (currToggle.id === 'includeUppercase') {
+                upperCaseActive = false;
+                console.log('currToggle.id: ', currToggle.id);
+            } else if (currToggle.id === 'includeLowercase') {
+                lowerCaseActive = false;
+                console.log('currToggle.id: ', currToggle.id);
+            } else if (currToggle.id === 'includeNumbers') {
+                numbersActive = false;
+                console.log('currToggle.id: ', currToggle.id);
+            } else {
+                symbolsActive = false;
+                console.log('currToggle.id: ', currToggle.id);
+            } 
+        }
     });
+
+    console.log(check)
+    console.log(check.classList)
 });
+
+function isActive() {
+
+}
 
 function handleGenerateBtnClick() {
     console.log('clicked!');
+    if (upperCaseActive === true) {
+        console.log('uppercase letters required!');
+    }
+    if (lowerCaseActive === true) {
+        console.log('lowercase letters required!');
+    }
+    if (numbersActive === true) {
+        console.log('numbers required!');
+    }
+    if (symbolsActive === true) {
+        console.log('symbols required!');
+    }
+
 };
 
 generateBtn.addEventListener('click', handleGenerateBtnClick);

@@ -250,9 +250,9 @@ body {
 }
 
 .slider-left {
-  width: 5%;
+  width: 8%;
   height: inherit;
-  background: hsl(var(--clr-accent));
+  /* background: hsl(var(--clr-accent)); */
   position: relative;
 }
 
@@ -345,6 +345,7 @@ body {
 
 .active {
   background-color: hsl( var(--clr-accent) );
+  border-color: transparent;
 }
 
 input[type="radio"] {

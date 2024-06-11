@@ -19,6 +19,7 @@
 
     <div class="password-output bg-dark flex">
       <span id="passwordOutput" class="password-output-text text-mid">P4$5W0rD!</span>
+      <p class="copy-text uppercase text-accent hidden" id="copyText">copied</p>
       <img onclick="copyContent()" class="password-output-img" src="./assets/images/icon-copy.svg" alt="black copy icon with green border">
     </div>
     
@@ -30,7 +31,7 @@
           <span class="char-length-num text-accent" id="charLengthNum">0</span>
         </div>
         <div class="slider bg-black">
-          <div class="slider-left">
+          <div class="slider-left" id="sliderLeft">
             <div class="slider-dial bg-light"></div>
           </div>
         </div>

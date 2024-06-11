@@ -9,6 +9,7 @@ const generateBtn = document.getElementById('generateBtn');
 const charLengthNum = document.getElementById('charLengthNum')
 const generatedPw = document.getElementById('passwordOutput').innerHTML;
 console.log(generatedPw);
+const copyText = document.getElementById('copyText');
 const checkbox = document.querySelectorAll('.checkbox');
 const checkImg = document.querySelectorAll('.check-image');
 let newPassword = ''
@@ -16,7 +17,7 @@ let newPassword = ''
 let charLength = 0;
 let sliderLeft = document.getElementById('sliderLeft');
 if (charLength > 0) {
-    sliderLeft.style.background = 'hsl(127 100 82)'
+    sliderLeft.style.background = 'hsl(127 100 82)';
 }
 
 let upperCaseActive = false;
@@ -28,7 +29,8 @@ let symbolsActive = false;
 const copyContent = async () => {
     try {
       await navigator.clipboard.writeText(generatedPw);
-      console.log('Content copied to clipboard');
+      console.log('copied');
+      copyText.classList.remove('hidden');
     } catch (err) {
       console.error('Failed to copy: ', err);
     }

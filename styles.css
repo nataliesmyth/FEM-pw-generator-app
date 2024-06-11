@@ -233,6 +233,11 @@ body {
   cursor: pointer;
 }
 
+.copy-text {
+  margin-top: 0;
+  padding-left: 4em;
+}
+
 .character-length {
   justify-content: space-between;
   align-items: center;

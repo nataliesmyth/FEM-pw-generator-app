@@ -1,24 +1,22 @@
-// password generator
-    // when browser loads...
-        // random password placeholder in grey
-        // character length is 0
-        // all radio buttons inactive
-        // strength bar is empty
-
 const generateBtn = document.getElementById('generateBtn');
-const charLengthNum = document.getElementById('charLengthNum')
 const generatedPw = document.getElementById('passwordOutput').innerHTML;
 console.log(generatedPw);
 const copyText = document.getElementById('copyText');
 const checkbox = document.querySelectorAll('.checkbox');
 const checkImg = document.querySelectorAll('.check-image');
-let newPassword = ''
+let newPassword = '';
 
-let charLength = 0;
-let sliderLeft = document.getElementById('sliderLeft');
-if (charLength > 0) {
-    sliderLeft.style.background = 'hsl(127 100 82)';
+const charOutput = document.getElementById('charLengthNum');
+let slider = document.getElementById('charRange');
+charOutput.innerText = slider.value;
+slider.oninput = function() {
+    charOutput.innerText = this.value;
 }
+// let charLength = 0;
+// let sliderLeft = document.getElementById('sliderLeft');
+// if (charLength > 0) {
+//     sliderLeft.style.background = 'hsl(127 100 82)';
+// }
 
 let upperCaseActive = false;
 let lowerCaseActive = false;
@@ -87,7 +85,7 @@ function isActive() {
 }
 
 function handleGenerateBtnClick() {
-    console.log('clicked!');
+    copyText.classList.add('hidden')
     if (upperCaseActive === true) {
         console.log('uppercase letters required!');
     }

@@ -247,7 +247,13 @@ body {
   font-size: 24px;
 }
 
+.slider-container {
+  width: 100%;
+}
+
 .slider {
+  --webkit-appearance: none;
+  appearance: none;
   position: relative;
   width: 100%;
   height: .5rem;
@@ -257,11 +263,21 @@ body {
 .slider-left {
   width: 8%;
   height: inherit;
-  /* background: hsl(var(--clr-accent)); */
   position: relative;
 }
 
-.slider-dial {
+input[type="range"] {
+  accent-color: hsl( var(--clr-accent) );
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.slider::-webkit-slider-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
   position: absolute;
   width: 1.75rem;
   height: 1.75rem;
@@ -270,8 +286,14 @@ body {
   right: 0;
 }
 
-.slider-dial:hover {
+.slider::-moz-range-thumb {
   cursor: pointer;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb:hover {
   background-color: hsl( var(--clr-black));
   border: 1px solid hsl( var(--clr-accent) );
 }

@@ -299,7 +299,7 @@ input[type=range]:focus {
 }
 
 .strength {
-  padding-inline: 1em;
+  padding-inline: .25em;
   justify-content: space-between;
   align-items: center;
 }
@@ -356,9 +356,17 @@ input[type=range]:focus {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  gap: 10px;
 }
 
+@media (min-width: 500px) {
+  .strength {
+    padding-inline: 1em;
+  }
+  
+  .right {
+    gap: 10px;
+  }
+}
 .border-none {
   border-color: transparent;
 }
@@ -385,10 +393,19 @@ input[type="radio"] {
   padding: 1em;
   width: 100%;
   background-color: hsl( var(--clr-accent) );
+  /* border: 2px solid transparent; */
   border: none;
   border-radius: 0;
 }
 
 .generate-btn:hover {
   cursor: pointer;
+  background-color: hsl( var(--clr-dark) );
+  color:hsl( var(--clr-accent) );
+  border: 2px solid hsl( var(--clr-accent) );
+}
+
+svg:hover {
+  /* background-color: red; */
+  fill: hsl( var(--clr-accent) );
 }

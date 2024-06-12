@@ -376,10 +376,15 @@ input[type=range]:focus {
 }
 
 .checkbox {
+  cursor: pointer;
   display: flex;
   width: 1.25rem;
   height: 1.25rem;
   border: 2px solid #FFF;
+}
+
+.checkbox:hover {
+  border: 2px solid hsl( var(--clr-accent) );
 }
 
 .active {

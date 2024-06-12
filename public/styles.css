@@ -270,6 +270,25 @@ body {
   position: relative;
 }
 
+/* input {
+  -webkit-appearance :none;
+  -moz-appearance :none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+} */
+
+/* Chrome, Edge, Safari, Opera */
+input[type="range" i]::-webkit-slider-thumb {
+  border-image: linear-gradient(90deg,hsl(var(--clr-accent)) 50%,hsl(var(--clr-mid)) 0) 1/0 100vw/0 calc(100vw + hsl(var(--clr-dark)));
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  border-image: linear-gradient(90deg,hsl(var(--clr-accent)) 50%,hsl(var(--clr-mid)) 0) 1/0 100vw/0 calc(100vw + hsl(var(--clr-dark)));
+}
+
 input[type="range"] {
   accent-color: hsl( var(--clr-accent) );
 }

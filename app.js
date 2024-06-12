@@ -1,5 +1,5 @@
 const generateBtn = document.getElementById('generateBtn');
-const generatedPw = document.getElementById('passwordOutput').innerHTML;
+const generatedPw = document.getElementById('passwordOutput');
 console.log(generatedPw);
 const copyText = document.getElementById('copyText');
 const checkbox = document.querySelectorAll('.checkbox');
@@ -47,8 +47,8 @@ checkbox.forEach((check) => {
         console.log(check.id)
         check.classList.toggle('active');
         console.log(check.classList);
-        console.log('currToggle: ', currToggle);
-        console.log('currToggle.classList.contains("active"): ' ,currToggle.classList.contains('active'))
+        // console.log('currToggle: ', currToggle);
+        // console.log('currToggle.classList.contains("active"): ' ,currToggle.classList.contains('active'))
         if (currToggle.classList.contains('active') === true) {
             if (currToggle.id === 'includeUppercase') {
                 upperCaseActive = true;
@@ -62,8 +62,10 @@ checkbox.forEach((check) => {
             } else {
                 symbolsActive = true;
                 console.log('currToggle.id: ', currToggle.id);
-            } 
+            }
+            generatePassword();
         }
+
         if (currToggle.classList.contains('active') === false) {
             if (currToggle.id === 'includeUppercase') {
                 upperCaseActive = false;
@@ -80,22 +82,50 @@ checkbox.forEach((check) => {
             } 
         }
     });
-
-    console.log(check)
-    console.log(check.classList)
 });
 
-const Required = {
-    upppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+const reqOptions = {
+    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     lowercase: 'abcdefghijklmnopqrstuvwxyz',
     numbers: '1234567890',
     symbols: '!@#$%^&*'
 }
-function generatePassword(length, required) {
 
+let newPw = '';
+function generatePassword() {
+    let chars = reqOptions.lowercase;
+    console.log('upperCaseActive: ', upperCaseActive)
+    console.log('lowerCaseActive: ', lowerCaseActive)
+    console.log('numbersActive: ', numbersActive)
+    console.log('symbolsActive: ', symbolsActive)
+    console.log(chars.includes(reqOptions.uppercase));
+    // create string of all included characters
+    if (upperCaseActive === true && chars.includes(reqOptions.uppercase) === false) {
+        chars += reqOptions.uppercase;
+    }
+    if (numbersActive === true && chars.includes(reqOptions.numbers) === false) {
+        chars += reqOptions.numbers;
+    }
+    if (symbolsActive === true && chars.includes(reqOptions.symbols) === false) {
+        chars += reqOptions.symbols;
+    }
+    console.log(chars);
+    // find required length
+    // create random string of required length
+    // show it on UI in white (not gray)
+    console.log('character length: ', slider.value)
+    let passwordLength = slider.value;
+    newPw = '';
+    for (let i = 0; i < passwordLength; i++) {
+        let randomNumber = Math.floor(Math.random() * chars.length);
+        newPw += chars.substring(randomNumber, randomNumber + 1);
+    }
+    console.log(newPw);
 }
 
+console.log(generatePassword())
 let reqNum = 0;
+
 function setStrengthState(length) {
     length = slider.value;
     if (length < 6) {
@@ -103,28 +133,55 @@ function setStrengthState(length) {
         strengthLevel.innerText = 'very weak!'
         graph.firstElementChild.style.backgroundColor = 'hsl(var(--clr-red))';
         graph.firstElementChild.style.border = 'none';
+
+        graph.firstElementChild.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.style.border = '2px solid #FFFFFF';
+        
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
+
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
     } else if (length >=6 && length < 10) {
         strengthLevel.innerText = 'weak '
         graph.firstElementChild.style.backgroundColor = 'hsl(var(--clr-orange))';
         graph.firstElementChild.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-orange))';
         graph.firstElementChild.nextElementSibling.style.border = 'none';
+
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
+        
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
     } else if (length >= 10 && length < 15) {
         strengthLevel.innerText = 'medium';
         graph.firstElementChild.style.backgroundColor = 'hsl(var(--clr-yellow))';
         graph.firstElementChild.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-yellow))';
         graph.firstElementChild.nextElementSibling.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-yellow))';
         graph.firstElementChild.nextElementSibling.nextElementSibling.style.border = 'none';
+
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
+
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
+        graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
     } else {
         strengthLevel.innerText = 'strong'
         graph.firstElementChild.style.backgroundColor = 'hsl(var(--clr-accent))';
         graph.firstElementChild.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-accent))';
         graph.firstElementChild.nextElementSibling.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-accent))';
         graph.firstElementChild.nextElementSibling.nextElementSibling.style.border = 'none';
+
         graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.backgroundColor = 'hsl(var(--clr-accent))';
         graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.border = 'none';
     }
@@ -132,8 +189,9 @@ function setStrengthState(length) {
 
 function handleGenerateBtnClick() {
     copyText.classList.add('hidden')
+    generatedPw.innerText = '';
     console.log('this password needs to be ' + slider.value + ' characters long')
-    
+    reqNum = 0;
     if (upperCaseActive === true) {
         reqNum += 1;
         console.log('uppercase letters required!');
@@ -153,8 +211,12 @@ function handleGenerateBtnClick() {
     if (slider.value >= 6 && slider.value < 15 && reqNum > 1) {
         console.log('password strength: medium')
     }
-    console.log(reqNum)
+    console.log(reqNum);
     setStrengthState(slider.value);
+    generatePassword();
+    console.log(slider.value);
+    generatedPw.innerText = newPw;
+    generatedPw.style.color = 'hsl(var(--clr-light))';
 };
 
 generateBtn.addEventListener('click', handleGenerateBtnClick);

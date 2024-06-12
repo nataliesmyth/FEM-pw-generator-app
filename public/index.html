@@ -19,8 +19,10 @@
 
     <div class="password-output bg-dark flex">
       <span id="passwordOutput" class="password-output-text text-mid">P4$5W0rD!</span>
-      <p class="copy-text uppercase text-accent hidden" id="copyText">copied</p>
-      <img onclick="copyContent()" class="password-output-img" src="./assets/images/icon-copy.svg" alt="black copy icon with green border">
+      <span class="flex copy-container">
+        <p class="copy-text uppercase text-accent hidden" id="copyText">copied</p>
+        <img onclick="copyContent()" class="password-output-img" src="./assets/images/icon-copy.svg" alt="black copy icon with green border">
+      </span>
     </div>
     
     <div class="container bg-dark">
@@ -32,9 +34,6 @@
         </div>
         <div class="slider-container">
           <input type="range" min="0" max="20" class="slider bg-black" id="charRange">
-          <div class="slider-left" id="sliderLeft">
-            <div class="slider-dial bg-light"></div>
-          </div>
         </div>
     </div>
       
@@ -43,7 +42,6 @@
       <div class="radio-button">
         <input type="radio" name="radioBtn"  checked>
         <label for="uppercase">
-          <!-- <img src="./assets/images/icon-check.svg" alt=""> -->
           <div class="checkbox bg-black" id="includeUppercase">
             <img class="check-image" src="./assets/images/icon-check.svg" alt="checkmark">
           </div>

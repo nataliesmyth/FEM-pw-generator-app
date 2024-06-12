@@ -216,7 +216,7 @@ body {
 .password-output {
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: .75em;
 }
 
 .password-output-text {
@@ -231,6 +231,10 @@ body {
 .password-output-img:hover,
 .password-output-img:focus {
   cursor: pointer;
+}
+
+.copy-container {
+  align-items: center;
 }
 
 .copy-text {
@@ -362,7 +366,7 @@ input[type=range]:focus {
   .strength {
     padding-inline: 1em;
   }
-  
+
   .right {
     gap: 10px;
   }

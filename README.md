@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/nataliesmyth/FEM-pw-generator-app?tab=readme-ov-file)
+- Solution URL: [https://github.com/nataliesmyth/FEM-pw-generator-app?tab=readme-ov-file](https://github.com/nataliesmyth/FEM-pw-generator-app?tab=readme-ov-file)
 - Live Site URL: [https://nataliesmyth.github.io/FEM-pw-generator-app/](https://nataliesmyth.github.io/FEM-pw-generator-app/)
 
 ## My process

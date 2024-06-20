@@ -8,9 +8,61 @@ let newPassword = '';
 const charOutput = document.getElementById('charLengthNum');
 let slider = document.getElementById('charRange');
 charOutput.innerText = slider.value;
-slider.oninput = function() {
-    charOutput.innerText = this.value;
+// slider.oninput = function() {
+//     charOutput.innerText = this.value;
+// }
+
+function updateGradient(rangeValue) {
+    const percentage = (rangeValue - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.backgroundImage = `linear-gradient(90deg, hsl(var(--clr-accent)) ${percentage}%, hsl(var(--clr-dark)) ${percentage}%)`;
+};
+
+updateGradient(slider.value);
+// Update gradient oninput
+slider.addEventListener('input', (e) => {
+    charOutput.innerHTML = e.target.value;
+    updateGradient(e.target.value);
+  });
+// inputs and outputs
+// inputs are things that can be tracked and responded to
+// outputs are things we can control
+// helps when input has a range
+// we can change obj props based on an input
+// our input value is the location of the slider thumb on the track
+// we will use this later to connect to our output value
+// fractional values make it easy to connect to future outputs
+// we need the thums current position and compare it to its maximum position
+// fractionValue = currThumbPosition / maxThumbPosition
+// OR
+// f = thumb.x / slider.width
+// we want to track thumb position from left to right, where the left side of the track is 0 and the right side is 1
+// if thumb.x 
+console.log(slider.offsetWidth)
+// slider.offsetWidth is the slider width
+// the range for our thumb is from 0 to slider.offsetWidth 
+const rangeInput = document.querySelector('input[type=range');
+// fractional value = relativeCurrentThumbPosition / inputRange
+console.log(rangeInput)
+
+let input = {
+    thumbX: {
+        start: 0,
+        end: slider.offsetWidth,
+        current: 0,
+    }
 }
+if (slider.value === 0) {
+    rangeInput.style.backgroundColor = 'red';
+}
+
+function handleSlider() {
+    console.log('event ', event);
+    const sliderTrack = document.querySelector('.slider-container')
+    console.log('handle slider FN!')
+    console.log(sliderTrack.clientX);
+    console.log(input.thumbX.range = slider.offsetWidth);
+}
+console.log('x coordinates', )
 
 let upperCaseActive = false;
 let lowerCaseActive = false;
@@ -110,8 +162,8 @@ function setStrengthState(length) {
 
         graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.backgroundColor = 'transparent';
         graph.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.style.border = '2px solid #FFFFFF';
-    } else if (length >=6 && length < 10) {
-        strengthLevel.innerText = 'weak '
+    } else if (length >= 6 && length < 10) {
+        strengthLevel.innerText = 'weak ';
         graph.firstElementChild.style.backgroundColor = 'hsl(var(--clr-orange))';
         graph.firstElementChild.style.border = 'none';
 
@@ -162,6 +214,8 @@ function handleGenerateBtnClick() {
     generatePassword();
     generatedPw.innerText = newPw;
     generatedPw.style.color = 'hsl(var(--clr-light))';
+
 };
 
 generateBtn.addEventListener('click', handleGenerateBtnClick);
+rangeInput.addEventListener('mousedown', handleSlider);
